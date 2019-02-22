@@ -14,7 +14,6 @@ export default class CountryDetail extends Component {
     const { id } = this.props.match.params;
     const theChosenOne = countries.filter((country) => country.cca3 === id);
     const theChosenOneBorders = theChosenOne[0].borders;
-    console.log(theChosenOne);
 
     const borders = countries.filter((country) => {
       return theChosenOneBorders.indexOf(country.cca3) !== -1;
@@ -29,16 +28,27 @@ export default class CountryDetail extends Component {
     return (
       <div>
         <h1>{theChosenOne[0].name.official}</h1>
-        <p><strong>Capital</strong> {theChosenOne[0].capital}</p>
-        <p><strong>Area</strong> {theChosenOne[0].area} km<sup>2</sup></p>
-        {(theChosenOne[0].borders.length !== 0 ) ?
-          <div>
-            <p><strong>Borders</strong></p>
-            <ul>
-              {listCountries()}
-            </ul>
-          </div> 
-          : null }
+        <table class="table">
+          <thead></thead>
+          <tbody>
+            <tr>
+              <td>Capital</td>
+              <td>{theChosenOne[0].capital}</td>
+            </tr>
+            <tr>
+              <td>Area</td>
+              <td>{theChosenOne[0].area} Km<sup>2</sup></td>
+            </tr>
+            {(theChosenOne[0].borders.length !== 0 ) ?
+            <tr>
+              <td>Borders</td>
+              <ul>
+                {listCountries()}
+              </ul>
+            </tr> 
+            : null }
+          </tbody>
+        </table>
       </div>
     )
   }
