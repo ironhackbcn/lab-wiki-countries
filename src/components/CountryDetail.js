@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import countries from '../data/countries.json';
-import List from './List';
 
-const listStyle = {
-  width: '30%',
-  margin: '20px'
+const detailStyle = {
+  margin: '50px',
+  textAlign: 'left',
+  width: '40%'
+}
+
+const boldStyle = {
+  fontWeight: 'bold'
+}
+
+const lineStyle = {
+  display: 'flex',
+  justifyContent: 'space-between'
 }
 
 class CountryDetail extends Component {
@@ -40,27 +49,20 @@ class CountryDetail extends Component {
   }
   render() {
     const country = this.findCountry();
-    if (country === undefined) {
-      return (
-       <List/>
-      );
-    } else {
-      return (
-        <div>
-          <List/>
-          <div>
-            <h1>{country.name.common}</h1>
-            <p>Capital: {country.capital}</p>
-            <p>Area: {country.area} km2</p>
-            <p>Borders:</p>
+    return (
+      <div style={detailStyle}>
+        <h1 style={boldStyle}>{country.name.common}</h1>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" style={lineStyle}><p style={boldStyle}>Capital:</p> {country.capital}</li>
+          <li class="list-group-item" style={lineStyle}><p style={boldStyle}>Area:</p> {country.area} km2</li>
+          <li class="list-group-item"><p style={boldStyle}>Borders:</p>
             <ul>
               {this.renderBorders(country)}
             </ul>
-          </div>
-        </div>
-      );
-    }
-
+          </li>
+        </ul>
+      </div>
+    );
   }
 }
 
