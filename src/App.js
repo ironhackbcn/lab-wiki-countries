@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Switch ,Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Country from './pages/Country';
 import NoMatch from './pages/NoMatch'

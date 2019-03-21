@@ -9,15 +9,15 @@ class Home extends Component {
     }
     return (
       <div>
-        <nav class="navbar navbar-dark bg-primary mb-3">
-          <div class="container">
-            <h1 class="navbar-brand">WikiCountries</h1>
+        <nav className="navbar navbar-dark bg-primary mb-3">
+          <div className="container">
+            <h1 className="navbar-brand">WikiCountries</h1>
           </div>
         </nav>
-        <div class="container">
-          <div class="row">
-            <div class="col-5" style= {style}>
-              <div class="list-group">
+        <div className="container">
+          <div className="row">
+            <div className="col-5" style= {style}>
+              <div className="list-group">
                 <CountryList/>
               </div>
             </div>

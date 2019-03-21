@@ -21,6 +21,3 @@ class CountryList extends Component {
 }
 
 export default CountryList;
-
-
-
