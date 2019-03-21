@@ -1,0 +1,33 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+
+// Data
+import countries from '../data/countries.json'
+
+class CountriesList extends Component {
+
+  renderList = () => {
+    return (
+      countries.map((country, index) => {
+        return (
+          <Link
+            key={`id-${index}`}
+            to={`/country/${country.cca3}`}
+            className="list-group-item list-group-item-action"
+          >{country.flag} {country.name.common}</Link>
+        )
+      })
+    )
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>WikiCountries</h1>
+        <div className="list-group">{this.renderList()}</div>
+      </div>
+    )
+  }
+}
+
+export default CountriesList
