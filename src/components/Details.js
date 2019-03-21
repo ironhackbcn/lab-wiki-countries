@@ -38,6 +38,7 @@ class Detail extends Component {
                 </tr>
               </tbody>
             </table>
+            <buttton className="btn btn-info" onClick={()=>this.props.history.goBack()}>Go Back</buttton>
           </div>
     )
   }
