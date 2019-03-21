@@ -10,9 +10,9 @@ class CountriesList extends Component {
     return (
       countries.map((country, index) => {
         return (
-          <Link 
-            index={`id-${index}`}
-            to={`/country`} 
+          <Link
+            key={`id-${index}`}
+            to={`/country/${country.cca3}`}
             className="list-group-item list-group-item-action"
           >{country.flag} {country.name.common}</Link>
         )

@@ -11,10 +11,10 @@ class App extends Component {
 
   render() {
     return (
-      <div> 
+      <div>
         <Switch>
           <Route exact path='/' component={CountriesList} />
-          <Route exact path='/country' component={CountryDetail} />
+          <Route exact path='/country/:cca3' component={CountryDetail} />
           <Route component={NotFound} />
         </Switch>
       </div>
