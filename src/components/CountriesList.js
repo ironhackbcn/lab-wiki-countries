@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 // Data
 import countries from '../data/countries.json'
@@ -9,7 +10,11 @@ class CountriesList extends Component {
     return (
       countries.map((country, index) => {
         return (
-          <a href="" className="list-group-item list-group-item-action">{country.flag} {country.name.common}</a>
+          <Link 
+            index={`id-${index}`}
+            to={`/country`} 
+            className="list-group-item list-group-item-action"
+          >{country.flag} {country.name.common}</Link>
         )
       })
     )
@@ -17,7 +22,10 @@ class CountriesList extends Component {
 
   render() {
     return (
-      <div className="list-group">{this.renderList()}</div>
+      <div>
+        <h1>WikiCountries</h1>
+        <div className="list-group">{this.renderList()}</div>
+      </div>
     )
   }
 }
