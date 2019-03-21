@@ -35,20 +35,47 @@ class CountryDetail extends Component {
     const cca3 = this.props.cca3;
     const country = this.findCountry(cca3);
     const { name, capital, area} = country;
+    const style = {
+      width: "30%"
+    }
     return (
-      <div class="col-7">
-        <h1>{name.common}</h1>
-          <h2>Capital</h2>
-          <p>{capital}</p>
-          <h2>Area</h2>
-          <p>{area} km
-            <sup>2</sup>
-          </p>
-          <h2>Borders</h2>
-            <ul>
-              {this.listBorders(country)}
-            </ul>
-          <Link to='/'>Back</Link>
+      <div>
+        <nav className="navbar navbar-dark bg-primary mb-3">
+          <div className="container">
+            <Link className="back-link" to='/'>Back</Link>
+            <a className="navbar-brand" href="/">WikiCountries</a>
+          </div>
+        </nav>
+        <div className="container">
+          <div className="row">
+            <div className="col-7">
+              <h1>{name.common}</h1>
+              <table className="table">
+                <thead></thead>
+                  <tbody>
+                  <tr>
+                    <td style={style}>Capital</td>
+                    <td>{capital}</td>
+                  </tr>
+                  <tr>
+                    <td>Area</td>
+                    <td>{area} km
+                      <sup>2</sup>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Borders</td>
+                    <td>
+                      <ul>
+                        {this.listBorders(country)}
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
