@@ -14,7 +14,15 @@ class App extends Component {
   render() {
     return (
       // Todo en la misma pagina
-      <div className="App">
+      <div>
+        <nav class="navbar navbar-dark bg-primary mb-3">
+          <div class="container">
+            <a class="navbar-brand" href="/">WikiCountries</a>
+          </div>
+        </nav>
+        <div class="container">
+          <div class="row">
+            <div class="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
               <div className="list-group">
                 {this.state.countries.map((country, index) => {
                   return <CountriesList
@@ -25,8 +33,15 @@ class App extends Component {
                   />
                 })}
               </div>
-            <Route exact path="/:cca3" component={CountryDetails} />
+            </div>
+            <div >
+              <Route exact path="/:cca3" component={CountryDetails} />
+            </div>
+
+          </div>
+        </div>
       </div>
+
       //fin de todo en la misma pagina
 
       // // Dos paginas diferentes
