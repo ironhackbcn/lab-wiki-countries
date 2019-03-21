@@ -12,22 +12,22 @@ class CountryDetail extends Component {
   }
 
   listBorders = (borderCountries) => {
-    const all = borderCountries.borders;
-    if (all > 0) {
-    const neighbours = all.map((cca3) => {
-          return this.findCountry(cca3)
-        });
-    return (neighbours.map((item, index) => {
-      return <CountryItem
-              name={item.name.common}
-              index={index}
-              key={`id${index}`}
-              cca3={item.cca3}
-              flag={item.flag}
-              />
-    }));
+    const countries = borderCountries.borders;
+    if (countries <= 0) {
+      return <p>No border countries</p>
     } else {
-      return <p>No borders</p>
+      const neighbours = countries.map((cca3) => {
+            return this.findCountry(cca3)
+          });
+      return (neighbours.map((item, index) => {
+        return <CountryItem
+                name={item.name.common}
+                index={index}
+                key={`id${index}`}
+                cca3={item.cca3}
+                flag={item.flag}
+                />
+      }));
     }
   }
 
