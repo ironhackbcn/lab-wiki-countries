@@ -20,7 +20,7 @@ class Detail extends Component {
                 </tr>
                 <tr>
                   <td>Area</td>
-                  <td>
+                  <td>{country.area} Km
                     <sup>2</sup>
                   </td>
                 </tr>
