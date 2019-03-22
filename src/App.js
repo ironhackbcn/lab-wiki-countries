@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import countries from './data/countries.json';
+import Countries from './pages/Countries';
+import InfoCountry from './pages/InfoCountry';
+import NavBar from './components/NavBar';
 
 class App extends Component {
+
+  state = {
+    listCountries: countries,
+  }
+
+  renderListCountries = () => {
+    return this.state.listCountries.map((item, index) => {
+      return <Countries key={`id-${index}`}
+                        country={item}
+                        />
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+
+        <Router>
+          
+            <NavBar />
+            <Route exact path="/Home" component={this.renderListCountries} />
+            {/* como id se pasará el cca3 desde countries.js */}
+            <Route exact path="/country/:id" component={InfoCountry} />
+          
+        </Router>
       </div>
     );
   }
