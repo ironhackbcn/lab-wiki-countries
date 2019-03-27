@@ -14,17 +14,19 @@ class Countris extends Component {
             return (
               <li  key={country.cca3} className='country-list'>
                 <img src={country.flag} alt=""/>
-                <Link to={`/countries/${country.cca3}`} country={country}>{country.name.official}</Link>
+                <Link to={`/${country.cca3}`} country={country}>{country.name.official}</Link>
               </li>
             )
           })}
         </ul>
-        <Route exact path="/countries/:id" component={CountryDetail}/>
+        <Route exact path="/:id" component={CountryDetail}/>
       </div>
     );
   }
 }
 
 export default Countris;
+
+
 
 
