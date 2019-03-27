@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Countris extends Component {
   render() {
+    console.log(this.props)
     return (
       <ul>
           {countries.map((country, index) => {
