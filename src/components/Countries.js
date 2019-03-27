@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 import countries from '../data/countries.json'
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import CountryDetail from '../components/CountryDetail';
+
 
 class Countris extends Component {
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
+      <div>
       <ul>
-          {countries.map((country, index) => {
+          {countries.map((country) => {
             return (
-              <li  key={index} className='country-list'>
+              <li  key={country.cca3} className='country-list'>
                 <img src={country.flag} alt=""/>
-                <Link to={`/countries/${country.cca3}`}>{country.name.official}</Link>
+                <Link to={`/countries/${country.cca3}`} country={country}>{country.name.official}</Link>
               </li>
             )
           })}
         </ul>
+        <Route exact path="/countries/:id" component={CountryDetail}/>
+      </div>
     );
   }
 }

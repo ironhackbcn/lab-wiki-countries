@@ -9,8 +9,12 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Wiki Countries</h1>
+        <div className='country-components'>
+          < Countries />
+          <CountryDetail />
+        </div>
+        
         <Switch>
-          <Route exact path="/countries" component={Countries}/>
           <Route exact path="/countries/:id" component={CountryDetail}/>
         </Switch>
       </div>

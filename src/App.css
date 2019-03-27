@@ -35,3 +35,8 @@
 .country-list {
   list-style-type: none;
 }
+
+.country-components {
+  display: flex;
+  flex-direction: row;
+}
