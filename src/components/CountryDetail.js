@@ -22,7 +22,15 @@ const countryDetail = (props) => {
       <p>{foundCountry.area}</p>
       <ul>
         {foundCountry.borders.map((country) =>{
-          return <li key={country}><Link to={`/countries/${country}`}>{country}</Link></li>
+          const getPais = (country)=>{
+            const oneCountry = pais =>{
+              return pais.cca3 === country;
+            }
+            return countries.find(oneCountry)
+          }
+          const borderCountry = getPais(country)
+
+          return <li key={borderCountry.cca3}><Link to={`/countries/${borderCountry.cca3}`}>{borderCountry.name.official}</Link></li>
         })}
       </ul>
       <button><Link to={`/countries`}>Go to Home</Link></button>
