@@ -31,3 +31,16 @@
     transform: rotate(360deg);
   }
 }
+
+.country-list {
+  list-style-type: none;
+}
+
+.country-components {
+  display: flex;
+  flex-direction: row;
+}
+
+.country-detail{
+  float: right;
+}
