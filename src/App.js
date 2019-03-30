@@ -13,17 +13,12 @@ class App extends Component {
   }
   render() {
     return (
+      <Router>
         <div className="App">
-          <h1 className="heading">Wiki Countries</h1>
-            {this.state.countries.map( (country, index) => {
-              return <Countries 
-                key={index}
-                name={country.name.official}
-                flag={country.flag}
-              />
-            })} 
+          <h1 className="heading">WikiCountries</h1>
+          <Route path="/" exact component={Countries} />
         </div>
-     
+      </Router>
     );
   }
 }
