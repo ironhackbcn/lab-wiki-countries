@@ -1,13 +1,42 @@
-import React, { Component } from 'react';
+import React from 'react';
+import countries from './../data/countries.json';
+import 'bulma/css/bulma.css';
+import { Link } from "react-router-dom";
 
-class Country extends Component {
-    render() {
-        return (
-            <div>
-                El otro
-            </div>
-        )
-    }    
-}
+function Country({ countryId }) {
+    const country = countries.find(country => country.cca3 === countryId);
+
+    return (
+        <div>
+            <table class="table is-hoverable">
+                <tbody>
+                    
+                    <tr>
+                        <td>{country.name.official}</td>    
+                    </tr>
+                    <tr> 
+                        <td>Capital</td>    
+                        <td>{country.capital}</td>
+                    </tr>
+                    <tr>     
+                        <td>Area</td>
+                        <td>{country.area} km</td>
+                    </tr>
+                    <tr>     
+                        <td>Borders</td>
+                        {country.borders.map((border, position) => {
+                        const country = countries.find((country) => country.cca3 === border)
+                        return <tr>
+                            <td key={position}>
+                            <Link to={`/country/${country.cca3}`}>{country.name.common}</Link>
+                            </td>
+                        </tr>
+                        })}
+                    </tr>
+                </tbody>
+            </table>    
+        </div>
+    )
+}    
 
 export default Country;

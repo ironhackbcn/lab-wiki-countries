@@ -1,36 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'bulma/css/bulma.css';
 import countries from './../data/countries.json';
+import Country from './Country.js'
+import { Link } from "react-router-dom";
 
-
-class Countries extends Component {
-
-    state = {
-        countries: countries,
-      }
-
-    render() {
-        return (
+function Countries({ match }) {
+    const countryId = match.params.countryId;
+    return (
+        <div div className="App-countries">
+            <table className="table is-hoverable">
+                <tbody>
+                    {countries.map( (country, index) => {
+                    return <tr key={index}>
+                                <td>
+                                <Link to={`/country/${country.cca3}`}>
+                                    {country.flag}
+                                    &nbsp; &nbsp;
+                                    {country.name.official}
+                                </Link>    
+                                </td>
+                            </tr>
+                    })} 
+                </tbody>
+            </table>
+           
             <div>
-                <table class="table is-hoverable">
-                    <tbody>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        
-                        {this.state.countries.map( (country, index) => {
-                            return <tr key={index}>
-                                    <td>{country.flag}</td>
-                                    <td>{country.name.official}</td>
-                                </tr>
-                            })} 
-                    </tbody>
-                </table>
-
+                {
+                    countryId 
+                        ? <Country countryId={countryId}/>
+                        : ""
+                }
             </div>
-        )
-    }    
+        </div>
+    )
 }
 
 export default Countries;
