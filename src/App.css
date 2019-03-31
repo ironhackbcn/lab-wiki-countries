@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   margin: 30px;
+  height: 100%;
 }
 
 .App-logo {
@@ -38,12 +39,48 @@
   margin: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-around
+}
+.App-content {
+  width: 50%;
+  margin: 10px;
+  height: 100%;
+  position: relative;
+}
+.App h1 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
 }
 
-.heading {
-  font-size: 400%;
-  font-weight: bold;
-  text-align: center;
-  display: inline;
+.App nav {
+  background-color: #0F8FF2;
+  color: #fff;
+}
+
+.selected {
+  background-color: #0F8FF2;
+  
+}
+
+.selectedColor {
+  color: #fff;
+}
+
+.unselectedColor {
+    color: black;
+}
+
+.scroll {
+  overflow: scroll;
+  height: 100vh;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
 }

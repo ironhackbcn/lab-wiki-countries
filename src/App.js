@@ -11,7 +11,9 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <h1 className="heading">WikiCountries</h1>
+        <nav>
+          <h1>WikiCountries</h1>
+        </nav>  
            <Route path="/" exact component={Countries}/>
            <Route path="/country/:countryId" component={Countries}/>
         </div>

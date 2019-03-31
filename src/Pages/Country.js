@@ -8,11 +8,13 @@ function Country({ countryId }) {
 
     return (
         <div>
-            <table class="table is-hoverable">
+            <table class="table">
                 <tbody>
                     
                     <tr>
-                        <td>{country.name.official}</td>    
+                        <td>
+                        <h1>{country.name.official}</h1>
+                        </td>    
                     </tr>
                     <tr> 
                         <td>Capital</td>    

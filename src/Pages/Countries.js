@@ -8,23 +8,24 @@ function Countries({ match }) {
     const countryId = match.params.countryId;
     return (
         <div div className="App-countries">
-            <table className="table is-hoverable">
-                <tbody>
-                    {countries.map( (country, index) => {
-                    return <tr key={index}>
-                                <td>
-                                <Link to={`/country/${country.cca3}`}>
-                                    {country.flag}
-                                    &nbsp; &nbsp;
-                                    {country.name.official}
-                                </Link>    
-                                </td>
-                            </tr>
-                    })} 
-                </tbody>
-            </table>
-           
-            <div>
+            <div className="scroll">
+                <table className="table">
+                    <tbody>
+                        {countries.map( (country, index) => {
+                        return <tr key={index}>
+                                    <td  className={(country.cca3 === countryId) ? "selected" : ""}>
+                                    <Link to={`/country/${country.cca3}`} className={(country.cca3 === countryId) ? "selectedColor" : "unselectedColor"}>
+                                        {country.flag}
+                                        &nbsp; &nbsp;
+                                        {country.name.official}
+                                    </Link>    
+                                    </td>
+                                </tr>
+                        })} 
+                    </tbody>
+                </table>
+            </div>
+            <div className="App-content">
                 {
                     countryId 
                         ? <Country countryId={countryId}/>
