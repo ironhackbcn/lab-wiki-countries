@@ -1,26 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import countries from './data/countries.json';
+import Home from './pages/Home';
+import Country from './pages/Country';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 class App extends Component {
+
+  state = {
+    countries: [...countries],
+  }
+
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <Router>
+          <nav className="navbar navbar-dark bg-primary mb-3">
+            <div className="container">
+              <a className="navbar-brand" href="/">WikiCountries</a>
+            </div>
+          </nav>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route path="/:country" component={Country}/>
+        </Switch>
+
+      </Router>
+
     );
   }
 }
