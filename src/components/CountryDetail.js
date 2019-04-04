@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import countriesDetail from '../data/countries.json';
+import NoMatch from './NoMatch';
 
 
 class CountryDetail extends Component {
@@ -9,16 +10,18 @@ class CountryDetail extends Component {
         console.log(this.props.match.params);
         const getCountry = (id) => {
             const theProject = oneProject => {
-              return oneProject.cca3 === id;
+                return oneProject.cca3 === id;
             }
             return countriesDetail.find(theProject)
-          };
-          
-          const { params } = this.props.match;
-          const foundCountry = getCountry(params.id);
-        
-        return (
-            <div className="col-7">
+            };
+            
+        const { params } = this.props.match;
+        const foundCountry = getCountry(params.id);
+        {if(foundCountry === undefined){
+            return (<NoMatch />)
+        }else{
+            return (
+                <div className="col-7">
             <h1>{foundCountry.name.common}</h1>
             <table className="table">
                 <thead></thead>
@@ -47,7 +50,7 @@ class CountryDetail extends Component {
                 </tbody>
             </table>
                 </div>
-        )
+            )}}    
     }
 
 }
