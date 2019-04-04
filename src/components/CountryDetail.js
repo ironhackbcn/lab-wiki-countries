@@ -3,8 +3,9 @@ import {Link} from 'react-router-dom';
 
 class CountryDetail extends Component {
   render() {
-    const {id} = this.props.match.params;
-    const {countries} = this.props;
+    const {countries, match} = this.props;
+    const id = match.url.slice(1,match.url.lenght)
+    
     let filtered = countries.filter(data => data.cca3 === id);
     filtered = filtered[0];
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import CountryList from './components/CountryList';
 import CountryDetail from './components/CountryDetail';
-import countries from '../data/countries';
+import countries from './data/countries';
 import NavBar from './components/Navbar';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -24,7 +24,7 @@ class App extends Component {
             />
             <Route
               exact path='/:id'
-              render={()=><CountryDetail countries={countries}/>}
+              render={({match}) => <CountryDetail countries={countries} match={match} />}
             />
           </Router>
         </div>

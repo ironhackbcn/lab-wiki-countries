@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 
 class CountryItem extends Component {
-    state = {  }
     render() { 
         const {data} = this.props;
         return ( 
