@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import countries from '../data/countries';
 import {Link} from 'react-router-dom';
 
 class CountryDetail extends Component {
-  state = {}
   render() {
-    const {id} = this.props.match.params
+    const {id} = this.props.match.params;
+    const {countries} = this.props;
     let filtered = countries.filter(data => data.cca3 === id);
     filtered = filtered[0];
 
