@@ -17,39 +17,76 @@ class CountryList extends Component {
     }
   }
 
-  renderBorders = () => {
-    return this.state.foundCountry.borders.map((item, index) => {
-      return (
-        <li>{item[index]}</li>
-      );
-    });
-  }
+  renderCountry = () => {
+    
+    const getCountryById2 = (cca3) => {
+      let result = data.find( (eachCountry) => eachCountry.cca3 === cca3 );
+      return result;
+    };
 
+    const foundCountry2 =  getCountryById(this.props.match.params.cca3) 
 
-  render(){
+    const renderBorders = () => {
+
+      let cca3ArrBorders = [];
+      let nameOfficialBorders = [];
+
+      foundCountry2.borders.map((item, index) => {
+        cca3ArrBorders.push(item);
+      });
+
+      cca3ArrBorders.map((item, index) => {
+        nameOfficialBorders.push(getCountryById2(item));
+      });
+
+      if (cca3ArrBorders.length > 0){
+        return nameOfficialBorders.map((item, index) => {
+          return (
+            <li><Link to={ `/${item.cca3}` }>{ item.name.official }</Link></li>
+          );
+      });
+      }
+
+    }
+
     return (
-      <div className="col-6 text-left mr-3">
-        <h2>{this.state.foundCountry.name.official}</h2>
-        <table className="table">
+      <div>
+        <h2>{foundCountry2.name.official}</h2>
+
+         <table className="table">
           <tbody>
             <tr>
-              <td>Capital</td>
-              <td>{this.state.foundCountry.capital}</td>
+              <td className="tableLabel">Capital</td>
+              <td>{foundCountry2.capital}</td>
             </tr>
             <tr>
               <td>Area</td>
-              <td>{this.state.foundCountry.area} m<sup>2</sup></td>
+              <td>{foundCountry2.area} m<sup>2</sup></td>
             </tr>
             <tr>
               <td>Borders</td>
               <td>
                 <ul>
-                  {this.renderBorders()}
+                  {renderBorders()}
                 </ul>
               </td>
             </tr>
-          </tbody>
+            </tbody>
         </table>
+        </div>
+    )
+  }
+
+
+
+
+  render(){
+    return (
+      
+      <div className="col-6 text-left mr-3">
+
+            {this.renderCountry()}
+
       </div>
     )
   }

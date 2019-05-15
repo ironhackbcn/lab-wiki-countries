@@ -8,3 +8,7 @@ h1{
   font-size:30px !important;
   margin:0px !important;
 }
+
+.tableLabel{
+  width:40px;
+}
