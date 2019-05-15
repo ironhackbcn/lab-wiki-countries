@@ -48,7 +48,7 @@ class CountryDetail extends Component {
                       return (
                         <li>
 
-                          <Link to={`/${border}`} >{border}</Link>
+                          <Link to={`/${border}`} >{this.getCountryById(border).name.official}</Link>
                         </li>
                       )
                     })

@@ -27,7 +27,6 @@ class App extends Component {
 
             <div className="col-5" style={styleTag}>
               <div className="list-group">
-
                 {
                   countries.map((country) => {
                     return (
@@ -41,6 +40,7 @@ class App extends Component {
               </div>
             </div>
             <Switch>
+              <Route exact path="/" component={null} />
               <Route exact path="/:id" component={CountryDetail} />
             </Switch>
 
