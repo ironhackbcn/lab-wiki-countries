@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, NavLink, Switch, Route } from 'react-router-dom';
 import CountryDetail from './CountryDetail';
@@ -34,12 +33,10 @@ class App extends Component {
               <NavLink className="list-group-item list-group-item-action" to="/ZWE">🇿🇼 Zimbabwe</NavLink>
             </div>
           </div>
-          <Router>
-            <Switch>
-              <Route exact path="/" Component={CountryDetail} />
-              <Route exact path="/:id" component={CountryDetail} />
-            </Switch>
-          </Router>
+          <Switch>
+            <Route exact path="/" />
+            <Route exact path="/:cca3" component={CountryDetail} />
+          </Switch>
         </div>
       </div>
     </div>

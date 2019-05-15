@@ -11,7 +11,8 @@ class CountryDetail extends Component {
   constructor(props) {
     super(props);
     const { params } = props.match;
-    const country = getCountryById(params.id);
+    console.log(params);
+    const country = getCountryById(params.cca3);
     this.state = {
       country: country
     }
