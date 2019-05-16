@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import {Route,Switch} from 'react-router-dom'
+import {Route,Switch} from 'react-router-dom'
 import CountryDetail from './components/CountryDetail';
 import data from './data/countries.json'
 import './App.css';
@@ -29,14 +29,16 @@ class App extends Component {
 
     return (
       <div className="App">
+      <Switch>
+
         <div className="row">
           <div className="col-5">
             {
               this.state.countries.map((oneCountry, index) => {
                 return (
                   <div className={createClassString()} key={index}>
-                    <a href={oneCountry.cca3} >{oneCountry.name.official}</a>
-                    <a href={oneCountry.cca3} >{oneCountry.flag}</a>
+                    <a href={oneCountry.cca3}>{oneCountry.name.official} {oneCountry.flag}</a>
+                    <Route exact path ={oneCountry.cca3} component={CountryDetail} /> 
                   </div>
 
                 )
@@ -45,16 +47,16 @@ class App extends Component {
           </div>
           <div className="col-7">
 
-            {/* HERE THE COUNTRY DETAIL */}
+            {/* HERE THE COUNTRY DETAIL ???*/}
+            
 
           </div>
         </div>
 
 
-        {/* 
-      <Switch>
-      <Route exact path ="/CountryDetail" component={CountryDetail} /> 
-      </Switch> */}
+        
+
+      </Switch>
       </div>
     )
   }
