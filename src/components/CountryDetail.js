@@ -19,11 +19,21 @@ class CountryDetail extends Component {
 
     return (
        <div class="col-7">
-        <h1>{detailCountry.name.common}</h1>
-        <h3>Capital: {detailCountry.capital}</h3>
-        <h3>Area: {detailCountry.area}</h3>
-        <h3> Borders: </h3>
-        <h5>
+       <h1>{detailCountry.name.common}</h1>
+         <table class="table">
+         <thead></thead>
+         <tbody>
+         <tr>
+          <td>Capital:</td>
+          <td>{detailCountry.capital}</td>
+        </tr>
+        <tr>
+          <td>Area:</td>
+          <td>{detailCountry.area}</td>
+        </tr>
+        <tr>
+          <td>Borders:</td>
+          <td>
           {
             detailCountry.borders.map((eachBorder, index) => {
               const borderCountry = getCountryByCca3(eachBorder)
@@ -34,7 +44,10 @@ class CountryDetail extends Component {
               )
             })
           }
-          </h5>
+          </td>
+        </tr>
+                  </tbody>
+          </table>
       </div>
     )
   }
