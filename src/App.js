@@ -1,26 +1,51 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
 import './App.css';
+import CountryList from './components/CountryList';
+import CountryDetail from './components/CountryDetail';
+import data from './data/countries.json';
+
+
+
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      countries: data
+    }
+  }
+
+  renderCountries = () => {
+    return this.state.countries.map((item, index) => {
+      return (
+        <CountryList
+          key={index.toString()}
+          {...item}
+        />
+      );
+    });
+  }
+
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div className="App">
+          <nav className="navbar navbar-dark bg-primary mb-4">
+            <h1 className="text-white">WikiCountries</h1>
+          </nav>
+          <div className="row ml-3">
+            <div className="col-5">
+              <div className="list-group text-left list-group">
+                { this.renderCountries() }
+              </div>
+            </div>
+            <Route path="/:cca3" component={ CountryDetail } />
+          </div>
+        </div>
+      </Router>
     );
   }
 }
