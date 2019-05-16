@@ -11,9 +11,7 @@ let styleTag = {
 }
 
 
-
 class App extends Component {
-
   render() {
     return (
       <div>
@@ -24,7 +22,6 @@ class App extends Component {
         </nav>
         <div class="container">
           <div className="row">
-
             <div className="col-5" style={styleTag}>
               <div className="list-group">
                 {
@@ -41,11 +38,9 @@ class App extends Component {
             </div>
             <Switch>
               <Route exact path="/" component={null} />
-              <Route exact path="/:id" component={CountryDetail} />
+              <Route exact path="/:country" component={CountryDetail} />
             </Switch>
-
           </div>
-
         </div>
       </div>
     );

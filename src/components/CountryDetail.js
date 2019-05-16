@@ -4,26 +4,22 @@ import { Link } from 'react-router-dom';
 // import queryString from 'query-string';
 
 
-
 class CountryDetail extends Component {
 
-
-  // helper function - retrieves the project by id
-  getCountryById = (id) => {
-    let result = countries.find((eachCountry) => eachCountry.cca3 === id);
+  // helper function - retrieves the project by country
+  getCountryById = (countryCode) => {
+    let result = countries.find((eachCountry) => eachCountry.cca3 === countryCode);
     return result;
   };
 
   render() {
-    console.log(this.props);
+    //console.log(this.props);
 
     // Deconstruct the query params from props.match
     const { params } = this.props.match;
-    const foundCountry = this.getCountryById(params.id);
-
+    const foundCountry = this.getCountryById(params.country);
 
     return (
-
       <div className="col-7">
         <h1>{foundCountry.name.official}</h1>
         <table class="table">
@@ -47,20 +43,17 @@ class CountryDetail extends Component {
                     foundCountry.borders.map((border) => {
                       return (
                         <li>
-
                           <Link to={`/${border}`} >{this.getCountryById(border).name.official}</Link>
                         </li>
                       )
                     })
                   }
-
                 </ul>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-
     );
   }
 }
