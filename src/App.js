@@ -26,7 +26,6 @@ function App() {
      </nav>
         <div class="row" >
           <List /> 
-         
           <Route path='/details/:cc3a' component={CountryDetail}/>
       </div>      
     </div>
