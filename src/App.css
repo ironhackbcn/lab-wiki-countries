@@ -31,3 +31,14 @@
     transform: rotate(360deg);
   }
 }
+.table{
+  display: flex;
+  flex-direction: column;
+}
+.column-table{
+  display: flex;
+}
+.title-table{
+  font-weight: 800;
+  margin-right: 10px;
+}
