@@ -1,0 +1,14 @@
+.navbar li {
+  
+  list-style: none;
+}
+a,
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.Menu-Bar{
+    width:100%;
+    background:blue;
+}
