@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  width: 900px;
 }
 
 .App-logo {
@@ -30,4 +31,32 @@
   to {
     transform: rotate(360deg);
   }
+}
+.title {
+  color: #fff;
+  background-color: blue;
+  padding: 10px;
+}
+.countryLink {
+  display: flex;
+  justify-content: start;
+}
+.countryName {
+  padding-left: 20px;
+}
+.maxheight {
+  height: 500px;
+}
+.list div {
+  display: inline-block;
+  width: 150px;
+  vertical-align: top;
+  padding: 10px;
+}
+.list-wrapper div:last-child {
+  border-bottom: none;
+}
+.list {
+  border-bottom: 1px solid #cacaca;
+  padding: 10px;
 }
