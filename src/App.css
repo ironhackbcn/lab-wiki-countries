@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -22,6 +22,15 @@
 .App-link {
   color: #61dafb;
 }
+
+h1{
+  text-align:left;
+  display:block;
+  width:100%;
+    position:fixed;
+    color: black;
+}
+
 
 @keyframes App-logo-spin {
   from {
