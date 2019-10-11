@@ -7,8 +7,8 @@ class CountryDetail extends Component {
         }
     }
 
-    componentDidMount () {}{
-        
+    componentDidMount () {}
+        const find
     }
 
   render() {

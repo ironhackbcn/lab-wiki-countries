@@ -16,7 +16,7 @@ class CountryList extends Component {
           {countriesList.map((country, id) => {
             return (
               <li key={id}>
-                <Link to={`/${country.cca3}`}>
+                <Link to={`/${country.cca3}`} >
                   {country.flag}
                   {country.demonym}
                 </Link>
