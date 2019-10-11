@@ -5,7 +5,7 @@ import countries from "../data/countries.json";
 const CountryList = () => {
   
   return (
-    <div>
+    <div className="list-group-item list-group-item-action">
       <h1>Country List</h1>
       <ul className="list-group">
         {countries.map((country, id) => {
