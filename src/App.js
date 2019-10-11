@@ -13,11 +13,12 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <Nav/>
-        </header>
+        
         <Switch>
           <Route exact path='/' component={CountryList} />
           <Route exact path="/:cca3" component={CountryDetail} /> */}
         </Switch>
+        </header>
       </div>
     );
   }
