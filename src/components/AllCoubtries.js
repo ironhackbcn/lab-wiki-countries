@@ -5,18 +5,18 @@ import countries from "../data/countries.json";
 class AllCoubtries extends Component {
     render() {
         return (
-            <div>
+            <div className="selected-country">
                 {
                     countries.map((country, index) =>{
                         return(
                             <Link
                             key={`country-${index}`}
-                            to={country.cca3}
+                            to={`/${country.cca3}`}
                             >
-                                <div className="flag-name">
+                              <div className="flag-name">
                                 <p>{country.flag}</p>
                                 <p>{country.name.common}</p>
-                                </div>
+                              </div>
                             </Link>
   
                         );
