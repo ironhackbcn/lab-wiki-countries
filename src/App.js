@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import countries from './data/countries.json';
 import './App.css';
 
 class App extends Component {
   render() {
+    console.log(countries);
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <ul class="nav justify-content-center">
+          <li class="nav-item">Wiki Countries</li>
+        </ul>
+        <div class="row">
+          <div class="col-5">Links</div>
+          <div class="col-7">Info</div>
+        </div>
       </div>
     );
   }
