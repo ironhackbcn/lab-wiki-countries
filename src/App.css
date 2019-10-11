@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #f1f1f1;
 }
 
 .App-logo {
@@ -9,18 +10,45 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.country-list {
+  border: 1px solid #a6acad;
+  border-radius:10px;
+  padding:5px;
+}
+
+.countrydetails{
+  list-style:disc;
+}
+
+h1 {
+  color: white;
+  background: navy;
+  border-radius: 10px;
+  padding: 10px 10px;
+  margin-top: 10px;
+}
+hr{
+  margin:10px;
+}
+
+.list-group {
+  max-height: 300px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 10px;
 }
 
 @keyframes App-logo-spin {
