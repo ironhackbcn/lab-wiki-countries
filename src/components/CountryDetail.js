@@ -2,7 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import countries from "../data/countries.json";
 
+
+
 const CountryDetail = props => {
+
+  const handleDatacountry = () => {
+    return country[0].borders.map((borderWith, index) => {
+      return (
+        <li key={`${borderWith}-${index}`} >
+          <Link to={`/${borderWith}`}>
+            {countries.filter((everyCountry)=>{return everyCountry.cca3 === borderWith})[0].name.common}
+          </Link>
+        </li>
+      );
+    })}
+    
   const {
     match: {
       params: { id }
@@ -24,19 +38,7 @@ const CountryDetail = props => {
       {country[0].borders.length > 0 && (
         <div>
           <p>Borders</p>
-          <ul>
-            {country[0].borders.map(borderWith => {
-              return (
-                <li>
-                  <Link to={`/:${borderWith}`}>
-                    {console.log(countries.filter((country) => {
-                      country.cca3 === borderWith;
-                    }))}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <ul>{handleDatacountry()}</ul>
         </div>
       )}
     </div>
@@ -44,12 +46,3 @@ const CountryDetail = props => {
 };
 
 export default CountryDetail;
-
-{
-  /*// <ul>
-          
-  //     country[0].border.map((borderWith)=>{ 
-  //     return (<li>borderWith</li>)/*<Link to={`/:${borderWith}`} />{countries.filter((country)=>{return country.cca3 === borderWith })[0].name.common}</li>)*/
-  //   })
-  // </ul>*/
-}
