@@ -7,20 +7,20 @@ import CountryDetail from "./components/CountryDetail";
 class App extends Component {
   render() {
     return (
-      
       <div className="container">
-          <div className="h1">
-            <h1 className="bg-primary">Country List</h1>
+        <div className="row">
+          <div className="col-12">
+            <h1 >Country List</h1>
           </div>
-        <header className="App-header">
-        
+        </div>
+        <header>
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-4">
               <Route path="/">
                 <CountryList />
               </Route>
             </div>
-            <div className="col-md-4">
+            <div className="col-8 country-detail">
               <Route path="/:id" component={CountryDetail}></Route>
             </div>
           </div>
