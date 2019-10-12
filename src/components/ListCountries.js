@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Data from "../data/countries.json";
-import { Link, Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import Countrie from "./Countrie";
 
 class ListCountries extends Component {

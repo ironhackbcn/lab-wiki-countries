@@ -7,23 +7,23 @@ class Countrie extends Component {
     const {
       match: { params },
     } = this.props;
-    const country = Data.filter(country => country.cca3 === params.id);
-    console.log("TCL: Countrie -> render -> country", country);
+
+    const country = cca3 => Data.filter(country => country.cca3 === cca3);
 
     return (
-      <div class="col-7">
-        <h1>{country[0].name.common}</h1>
+      <div className="col-7">
+        <h1>{country(params.id)[0].name.common}</h1>
         <table className="table">
           <thead></thead>
           <tbody>
             <tr>
               <td>Capital</td>
-              <td>{country[0].capital[0]}</td>
+              <td>{country(params.id)[0].capital[0]}</td>
             </tr>
             <tr>
               <td>Area</td>
               <td>
-                {country[0].area} km
+                {country(params.id)[0].area} km
                 <sup>2</sup>
               </td>
             </tr>
@@ -31,10 +31,12 @@ class Countrie extends Component {
               <td>Borders</td>
               <td>
                 <ul>
-                  {country[0].borders.map((cca3, index) => {
+                  {country(params.id)[0].borders.map((cca3, index) => {
+                    console.log("TCL: Countrie -> render -> cca3");
+
                     return (
                       <li>
-                        <Link to={cca3}> {cca3}</Link>
+                        <Link to={cca3}> {country(cca3)[0].name.common}</Link>
                       </li>
                     );
                   })}
