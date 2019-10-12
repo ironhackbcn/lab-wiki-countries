@@ -39,7 +39,7 @@ const CountryDetail = props => {
                           {foundCountry.borders.map((cca3, index) => {
                               const country = getCountry(cca3).name.common;
                             return (
-                            <li><Link to={`/${cca3}`} key={`${cca3}-${index}`}>{country}</Link></li>
+                            <li key={`${cca3}-${index}`}><Link to={`/${cca3}`} >{country}</Link></li>
                             )
                             })
                           }        
