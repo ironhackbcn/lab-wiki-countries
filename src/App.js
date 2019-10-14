@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import CountryList from './components/CountryList';
+import CountryDetail from './components/CountryDetail';
 
 class App extends Component {
   render() {
@@ -19,7 +21,9 @@ class App extends Component {
             <div className="country-list">
               <CountryList />
             </div>
-            <div className="country-deatils"></div>
+            <div className="country-deatils">
+              <Route path="/:id" component={CountryDetail}></Route>
+            </div>
           </div>
         </div>
       </div>
