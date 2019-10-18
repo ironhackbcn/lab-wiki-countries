@@ -10,7 +10,9 @@ class App extends Component {
     return (
       <div className="App">
         <h1>WikiCountries</h1>
-        <NavBar />
+        <div>
+          <NavBar />
+        </div>
         <Switch>
           <Route exact path='/countries' component={Countries} />
           <Route exact path='/countries/:id' component={CountryDetail} />

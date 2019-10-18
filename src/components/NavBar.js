@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const navbar = () => {
   return (
-    <nav className="nav-style">
-      <ul>
-        <li><Link to='/' style={{ textDecoration: 'none' }}>Home</Link></li>
-        <li><Link to='/countries' style={{ textDecoration: 'none' }}>countries</Link></li>
-      </ul>
+    <nav className="navbar navbar-dark bg-primary mb-3">
+        <div className='container'>
+            <Link className='navbar-brand' to='/' style={{ textDecoration: 'none' }}>Home</Link>
+            <Link className='navbar-brand' to='/countries' style={{ textDecoration: 'none' }}>countries</Link>
+        </div>
     </nav>
   )
 }
