@@ -24,7 +24,7 @@ class App extends Component {
                 </Route>
               </div>
             </div>
-            <div class="col-7">
+            <div className="col-7">
               <Route path="/:id" component={CountryDetail} />
             </div>
           </div>
